@@ -94,12 +94,12 @@ if info == '' or 't' in info:
 if 'd' in info:
     print('Últimos 20 tíquetes disponíveis:')
     for index, ticket in enumerate(all_tickets['available']):
-        print(f' {index+1}:\t{ticket['Tíquete']}')
+        print(f' {index+1}:\t{ticket["Tíquete"]}')
     print()
 if 'u' in info:
     print('Últimos 20 tíquetes usados:')
     for index, ticket in enumerate(all_tickets['used']):
-        print(f' {index+1}:\t{ticket['Tíquete']}')
+        print(f' {index+1}:\t{ticket["Tíquete"]}')
     print()
 if 'D' in info:
     print('Informação completa sobre últimos 20 tíquetes disponíveis:')
