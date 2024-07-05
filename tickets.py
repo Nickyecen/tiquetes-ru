@@ -3,7 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 
 # Gets user credentials
-cred = open('.credentials', 'r')
+script_dir = os.path.dirname(os.path.abspath(__file__))
+rel_path = ".credentials"
+abs_file_path = os.path.join(script_dir, rel_path)
+cred = open(abs_file_path, 'r')
 
 USER = cred.readline()
 PSWD = cred.readline()
