@@ -10,6 +10,12 @@ O programa vai ler o arquivo .credentials na mesma pasta em que ele está, que d
 BRT_dm 092004
 ```
 
+### Dependências
+Para acesso e parsing das informações, foram utilizadas as bibliotecas Request e Beautiful Soup, que podem ser instaladas com:
+```
+pip install request bs4
+```
+
 ## Funcionamento
 O programa vai carregar as informações de tíquetes e te apresentar com diferentes opções de acesso para as informações de seus tíquetes. Mais de uma opção pode ser utilizada por execução, desde que o caracter da opção esteja na chamada, ela aparecerá.
 

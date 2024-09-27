@@ -55,8 +55,10 @@ def filter_table(table):
         ticket = {}
         columns = row.find_all('td')
         items = [item.text.strip() for item in columns]
-        for index, info in enumerate(infos):
-            ticket[info] = items[index]
+        if 'Nenhum resultado encontrado.' not in items:
+            for index, info in enumerate(infos):
+                print('Items: ', items, 'Index: ', index)
+                ticket[info] = items[index]
         filtered.append(ticket)
 
     return filtered
@@ -92,12 +94,18 @@ print()
 
 if info == '' or 't' in info:
     print('Tíquete disponível:')
-    print(all_tickets['available'][0]['Tíquete'])
+    try:
+        print(all_tickets['available'][0]['Tíquete'])
+    except KeyError:
+        print('Não há tíquetes disponíveis')
     print()
 if 'd' in info:
     print('Últimos 20 tíquetes disponíveis:')
-    for index, ticket in enumerate(all_tickets['available']):
-        print(f' {index+1}:\t{ticket["Tíquete"]}')
+    try:
+        for index, ticket in enumerate(all_tickets['available']):
+            print(f' {index+1}:\t{ticket["Tíquete"]}')
+    except KeyError:
+        print('Não há tíquetes disponíveis')
     print()
 if 'u' in info:
     print('Últimos 20 tíquetes usados:')
